@@ -56,9 +56,19 @@ module SystemdMon::Notifiers
         body message
       end
       mail.to = options['to']
+
       if options['from']
         mail.from options['from']
       end
+
+      if options['cc']
+        mail.cc = options['cc']
+      end
+
+      if options['bcc']
+        mail.bcc = options['bcc']
+      end
+
       mail.deliver!
     end
   end
